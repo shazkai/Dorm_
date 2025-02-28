@@ -6,7 +6,7 @@ import asyncio
 # Your Telegram bot token and chat ID
 TELEGRAM_TOKEN = "7653000274:AAFKbBLtcHQLuh5JsoieTKHqyJD1qPBjTus"
 CHAT_ID = "7773963333"
-
+SECOND_CHAT_ID = "1831351720"   # Second chat
 # Initialize the Telegram bot
 bot = telegram.Bot(token=TELEGRAM_TOKEN)
 
@@ -29,6 +29,7 @@ async def check_listing():
         message = "Notification: Dormitory listing might be available!"
         try:
             await bot.send_message(chat_id=CHAT_ID, text=message)
+            await bot.send_message(chat_id=SECOND_CHAT_ID, text=message)
             print("Notification sent:", message)
         except Exception as e:
             print("Error sending Telegram message:", e)
